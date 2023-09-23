@@ -1,6 +1,5 @@
-{% block scripts %} {{ moment.include_moment() }} {% endblock %} {% extends
-"bootstrap/base.html" %} {% block title %}Flasky{% endblock %} {% block navbar
-%}
+{% extends "bootstrap/base.html" %}{% import "bootstrap/wtf.html" as wtf %} {%
+block title %}Flasky{% endblock %} {% block navbar %}
 <div class="navbar navbar-inverse" role="navigation">
   <div class="container">
     <div class="navbar-header">
@@ -27,9 +26,13 @@
 {% endblock %} {% block content %}
 <div class="container">
   <div class="page-header">
-    <h1>Hello, Saryuhan!</h1>
-    <p>The local date and time is {{ moment(current_time).format('LLLL') }}.</p>
-    <p>That was {{ moment(current_time).fromNow(refresh=True) }}</p>
+    {% for message in get_flashed_messages() %}
+    <div class="alert alert-warning">
+      <button type="button" class="close" data-dismiss="alert">&times;</button>
+      {{ message }}
+    </div>
+    {% endfor %}
+    <h1>Hello, {% if name %}{{ name }}{% else %}Stranger{% endif %}!</h1>
+    {{ wtf.quick_form(form) }} {% endblock %}
   </div>
 </div>
-{% endblock %}
