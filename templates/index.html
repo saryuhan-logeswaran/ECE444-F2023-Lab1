@@ -33,6 +33,11 @@ block title %}Flasky{% endblock %} {% block navbar %}
     </div>
     {% endfor %}
     <h1>Hello, {% if name %}{{ name }}{% else %}Stranger{% endif %}!</h1>
-    {{ wtf.quick_form(form) }} {% endblock %}
+    {% if email %}
+    <h1>
+      {% if 'utoronto' in email %}Your UofT email is {{ email }}{% else %}Please
+      use your UofT email {% endif %}!
+    </h1>
+    {% endif %} {{ wtf.quick_form(form) }} {% endblock %}
   </div>
 </div>
