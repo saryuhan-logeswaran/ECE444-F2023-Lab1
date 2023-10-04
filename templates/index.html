@@ -32,7 +32,10 @@ block title %}Flasky{% endblock %} {% block navbar %}
       {{ message }}
     </div>
     {% endfor %}
-    <h1>Hello, {% if name %}{{ name }}{% else %}Stranger{% endif %}!</h1>
+    <h1>
+      Hello, {% if name %}{{ name }}{% else %}Stranger{% endif %}! Welcome to
+      Lab3 Docker!
+    </h1>
     {% if email %}
     <h1>
       {% if 'utoronto' in email %}Your UofT email is {{ email }}{% else %}Please
